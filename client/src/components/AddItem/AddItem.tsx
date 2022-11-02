@@ -3,7 +3,13 @@ import axios from "axios";
 import { Item } from "../../types.js";
 import Button from "@mui/material/Button";
 import ItemModal from "../Modals/ItemModal";
+import styled from "styled-components";
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 5% 10%;
+`;
 const AddItem = () => {
   const [addItem, setAddItem] = useState<boolean>(false);
   const [input, setInput] = useState<string>("");
@@ -18,9 +24,11 @@ const AddItem = () => {
 
   return (
     <div>
-      <Button variant="contained" onClick={() => setAddItem(!addItem)}>
-        Add New Item +
-      </Button>
+      <ButtonContainer>
+        <Button variant="contained" onClick={() => setAddItem(!addItem)}>
+          + Add New Item
+        </Button>
+      </ButtonContainer>
       {addItem && (
         <ItemModal
           open={addItem}
