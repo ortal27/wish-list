@@ -9,6 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const data = [];
+
+app.get('/items',( req, res) => {
+    res.end(JSON.stringify(data));
+})
 app.post('/' ,async (req, res) => {
     console.log("url:", req.body);
     await getData(req.body.input);
